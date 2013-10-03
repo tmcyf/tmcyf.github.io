@@ -1,0 +1,20 @@
+name: "TMCYF Web: Docs & Guides"
+description: "Documentation and guides for TMCYF development"
+author: "TMCYF"
+
+exclude: [README, Rakefile, Gemfile, Gemfile.lock]
+markdown: redcarpet
+paginate: 16
+permalink: /:title
+
+assets:
+
+  js_compressor: yui
+
+  css_compressor: yui
+ 
+  cachebust: hard
+
+  cache: false
+
+  gzip: [ text/css, application/javascript ]
