@@ -5,7 +5,13 @@ Changes
 
 = 1.0 / 2013-10-02
 
-	* Created docs repo
-	* Added jekyll
-	* Added base styles
-	* Published using github pages
+	* created docs repo
+	* added jekyll
+	* added base styles
+	* published using github pages
+
+= 1.1 / 2013-10-04
+
+	* added logo
+	* added syntax highlighting
+	* added preliminary table of contents
