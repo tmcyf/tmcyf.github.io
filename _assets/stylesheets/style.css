@@ -2,12 +2,14 @@ body {
   color: #333;
   font-size: 100%;
   line-height: 1.75;
-	font-family: 'Cardo', serif;
+  border-top: 7px solid #c73f3f;
+  font-family: 'Lora', serif;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 { 
   line-height: 1.25;
-  font-family: 'Cardo', serif; 
+  font-family: 'Gentium Book Basic', serif;
 }
 h1, .h1 {
   font-size: 32px;
@@ -15,14 +17,14 @@ h1, .h1 {
 }
 h2, .h2, h3, .h3, h4, h5, h6 { 
   font-size: 24px;
-  margin-bottom: 16px;
-}
-p, .p {
-  font-size: 18px;
-  margin-bottom: 32px;
+  margin: 20px 0 16px 0;
 }
 small, .small { font-size: 16px; }
 
 .center { text-align: center; }
 .fl { float: left; }
 .fr { float: right; }
+
+header {
+  margin: 40px 0 15px 0;
+}
