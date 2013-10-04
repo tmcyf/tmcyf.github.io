@@ -37,3 +37,7 @@ small, .small { font-size: 16px; }
 .fr { float: right; }
 
 .intro { font-style: italic; }
+
+.page-title {
+  margin: 40px 0 40px 0;
+}
