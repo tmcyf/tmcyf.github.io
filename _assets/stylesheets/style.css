@@ -41,3 +41,34 @@ small, .small { font-size: 16px; }
 .page-title {
   margin: 40px 0 40px 0;
 }
+
+#home a, #home a:visited, #home a:link, #home a:active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 7px 0 5px;
+  margin-left: 5px;
+  font-size: 42px;
+  text-decoration: none;
+  background-color: #c73f3f;
+  color: #eee;
+}
+#home a:hover {
+  color: #fff;
+}
+
+/* #Media Queries
+================================================== */
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+    .page-title {
+        margin: 80px 0 40px 0;
+    }
+}
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .page-title {
+        margin: 95px 0 40px 0;
+    }  
+}
