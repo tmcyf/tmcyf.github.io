@@ -17,3 +17,9 @@ Changes
 	* added preliminary table of contents
 	* styled documentation pages
 	* added link to home from docs
+
+= 1.2 / 2013-10-05
+
+	* added mac set up for development
+	* working anchor links
+	* external links / sources
