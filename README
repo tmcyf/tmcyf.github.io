@@ -28,3 +28,8 @@ Changes
 
 	* added windows set up for development
 	* changed home button styling
+
+= 1.4 / 2013-11-7
+
+	* added development workflow
+	* bumped dependency versions
