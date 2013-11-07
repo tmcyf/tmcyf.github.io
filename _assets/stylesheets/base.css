@@ -65,7 +65,7 @@
         .column:first-child, .columns:first-child   { margin-left: 0; margin-right: 10px; }
         .column.omega, .columns.omega,
         .column:last-child, .columns:last-child     { margin-right: 0; margin-left: 10px; }
-        .column:first-child:last-child, 
+        .column:first-child:last-child,
         .columns:first-child:last-child,
         .alpha.omega                                { margin-left: 0; margin-right: 0; }
 
@@ -302,7 +302,7 @@
 /* #Lists
 ================================================== */
     ul, ol { margin-bottom: 20px; }
-    ul { list-style: none outside; }
+    ul { list-style: circle inside; }
     ol { list-style: decimal; }
     ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
     ul.square { list-style: square outside; }
@@ -439,7 +439,7 @@
         margin-bottom: 20px;
         background: #fff; }
     select {
-        padding: 0; 
+        padding: 0;
         width: 220px; }
     input[type="text"]:focus,
     input[type="password"]:focus,
