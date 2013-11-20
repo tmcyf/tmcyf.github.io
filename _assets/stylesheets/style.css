@@ -18,7 +18,7 @@ AuNTI4IGMwLTguMDc4LTIuNzQyLTEwLjIyNy02LjQ0Ny0xMC4yMjdjLTUuMTEzIDAtMTEuNzA5IDYuMD
   margin: 40px 0 15px 0;
 }
 
-h1, h2, h3, h4, h5, h6 { 
+h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
   font-family: 'Gentium Book Basic', serif;
 }
@@ -26,7 +26,7 @@ h1, .h1 {
   font-size: 32px;
   margin-bottom: 32px;
 }
-h2, .h2, h3, .h3, h4, h5, h6 { 
+h2, .h2, h3, .h3, h4, h5, h6 {
   font-size: 24px;
   margin: 20px 0 16px 0;
 }
