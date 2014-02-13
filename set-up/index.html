@@ -1,0 +1,163 @@
+<!doctype html> 
+<html lang="en"> 
+<head>
+  <meta charset="utf-8">
+  <title>TMCYF Web: Docs & Guides</title>
+  <meta name="author" content="TMCYF">
+  <meta name="description" content="Documentation and guides for TMCYF development">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" href="/assets/base-23449e3f02cc6adbcccf22747de4a8a1.css">
+    <link rel="stylesheet" href="/assets/style-c5577a40a9f414dc4ecced8d71891979.css">
+    <link rel="stylesheet" href="/assets/syntax-acd765c80ae2bf51edaa85ef4607d765.css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic|Gentium+Book+Basic:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container">
+      <div id="home"><a href="/"><i class="icon-home"></i></a></div>
+<div class="thirteen columns offset-by-three">
+	<header>
+		<h1 class="page-title">Setting up your development environment</h1>
+	</header>
+	<section class="page-content"><h2>Overview</h2>
+
+<p>The following will assist you in setting up your local machine to enable you to work on our repos hosted on GitHub.</p>
+
+<h2>The Silver Bullet Method&trade;</h2>
+
+<p>Much like many things in this life, such process doesn&#39;t exist -- yet.</p>
+
+<h2>Manual Installation</h2>
+
+<p>Depending on your system your mileage may vary. Our stack primarily includes: <a href="https://www.ruby-lang.org/en/">Ruby</a>, <a href="http://rubyonrails.org/">Rails</a>, <a href="http://git-scm.com/">Git</a>, and <a href="http://www.postgresql.org/">Postgresql</a>. So at a high level, if you can get those installed, you&#39;re good to go.</p>
+
+<p>Let&#39;s get started!</p>
+
+<hr>
+
+<h1 id="mac"><a href="/set-up#mac">Mac</a></h1>
+
+<p><em>These steps are for OS X 10.8+.</em></p>
+
+<h4>System Update</h4>
+
+<p>Seriously. First thing you need to do if you haven&#39;t yet. Apple Icon &gt; Software Update</p>
+
+<h4>Command Line Tools</h4>
+
+<p>To get our favorite package manager, <a href="http://brew.sh/">Homebrew</a>, we need to first grab Command Line Tools for Xcode. You&#39;ll need to <a href="https://developer.apple.com/downloads">download it from Apple&#39;s Developer Portal</a>. Make an account, navigate over to the latest version of the Command Line Tools for your OS. Install.</p>
+
+<h4>Homebrew</h4>
+
+<p>Once you&#39;ve got CLT installed, jump into your Terminal (Applications » Utilities » Terminal), and copy paste the following:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">ruby &lt;<span class="o">(</span>curl -fsSkL raw.github.com/mxcl/homebrew/go<span class="o">)</span>
+
+<span class="c"># Once it&#39;s done, add Homebrew&#39;s binary path to the front of the $PATH</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;export PATH=/usr/local/bin:$PATH&quot;</span> &gt;&gt; ~/.bash_profile
+<span class="nb">source</span> ~/.bash_profile
+</code></pre></div>
+<p>Check to see if everything is configured properly:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">brew doctor
+</code></pre></div>
+<p>To get the latest forumale, run:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">brew update
+</code></pre></div>
+<h4>Git</h4>
+
+<p>Git is an integral component of our workflow. So let&#39;s get it STAT. To install, simply run:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">brew install git
+</code></pre></div>
+<p>Once that&#39;s done, verify the installation</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">git --version
+</code></pre></div>
+<p>Also, running <code>which git</code> should output <code>/usr/local/bin/git</code>.</p>
+
+<h4>Ruby</h4>
+
+<p>OS X comes with Ruby but that&#39;s some system level voodoo you don&#39;t want to mess with so we&#39;ll be using <a href="https://rvm.io">rvm</a>.</p>
+
+<p>We&#39;ll install rvm using Homebrew (it&#39;s the best, isn&#39;t it?).</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">curl -L https://get.rvm.io <span class="p">|</span> bash -s stable --ruby
+</code></pre></div>
+<p>When it is done, both RVM and a fresh version of Ruby 2.0 are installed. The following line was also automatically added to your <code>.bash_profile</code>.</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="o">[[</span> -s <span class="s2">&quot;$HOME/.rvm/scripts/rvm&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> <span class="s2">&quot;$HOME/.rvm/scripts/rvm&quot;</span>
+</code></pre></div>
+<p>After that, start a new terminal and run:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nb">type </span>rvm <span class="p">|</span> head -1
+</code></pre></div>
+<p>You should get the output <code>rvm is a function</code>. Type in <code>rvm list</code>. The one that was just installed, Ruby 2.0, should be set as default.</p>
+
+<h4>Bundler</h4>
+
+<p>Bundler is a nice little dealio that mangages an application&#39;s dependencies.</p>
+
+<p>You should be running <code>Ruby 2.0.0-p247</code>.</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">gem install bundler
+</code></pre></div>
+<p>We need to configure Bundler to install gems relative to our projects instead of globally.</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">mkdir ~/.bundle
+touch ~/.bundle/config
+<span class="nb">echo</span> <span class="s1">&#39;BUNDLE_PATH: vendor/bundle&#39;</span> &gt;&gt; ~/.bundle/config
+</code></pre></div>
+<p>Save some time and skip rdoc generation.</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">&#39;gem: --no-rdoc --no-ri&#39;</span> &gt;&gt; ~/.gemrc
+</code></pre></div>
+<h3>PostgreSQL</h3>
+
+<p>Just like Ruby, OS X Lion and Mountain Lion come with PostgreSQL but it&#39;s an old version and no good to develop with.</p>
+
+<p>Let&#39;s flex those Homebrew muscles:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">brew install postgresql
+initdb /usr/local/var/postgres -E utf8
+
+<span class="c"># Add PostgreSQL to launchctl to let OS X manage the process and start when you login</span>
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+</code></pre></div>
+<p>Postgres has a slightly longer command as you need to pass in the locations so we&#39;ll create an alias to shrink all this down to simply <code>pg</code>.</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&quot;alias pg=&#39;pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log&#39;&quot;</span> &gt;&gt; ~/.bash_profile
+<span class="nb">source</span> ~/.bash_profile
+pg start
+<span class="c"># Usage: pg {start|stop|restart|reload|status}</span>
+</code></pre></div>
+<h3>Rails</h3>
+
+<p>Ah yes. Finally, the main event. As long as you have Ruby and Bundler going, this step should be a cinch.</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">gem install rails
+</code></pre></div>
+<p>This might take a little time, so grab your drink of choice and browse the &#39;net. Once it&#39;s done, check you have Rails by running <code>rails -v</code>.</p>
+
+<p><em>That about does it for the setting up your Mac for Rails development!</em></p>
+
+<hr>
+
+<h1 id="windows"><a href="/set-up#windows">Windows</a></h1>
+
+<p>Currently, not many in the Ruby / Rails community develop on Windows so documentation is sparse or not properly fleshed out.</p>
+
+<p>Here are your choices for Windows:</p>
+
+<ul>
+<li>Use <a href="http://railsapps.github.io/rubyonrails-nitrous-io">Nitrous.io</a> (more on this below)</li>
+<li>Install the <a href="https://github.com/railsbridge-boston/railsbridge-virtual-machine">Railsbridge Virtual Machine</a> or <a href="https://github.com/rails/rails-dev-box">rails-dev-box</a></li>
+<li>User <a href="http://railsinstaller.org">RailsInstaller</a> for Windows</li>
+</ul>
+
+<p>Nitrous.io is ideal if you have a fast Internet connection. If not, download the Railsbridge Virtual Machine or rails-dev-box to create a virtual Linux computer with Ruby 2.0 and Rails 4.0 using <a href="http://www.vagrantup.com">Vagrant</a>. The last option, RailsInstaller, is not recommended because it does not provide an up-to-date version of Ruby or Rails. Also, RVM does not run on Windows.</p>
+
+<h3>Nitrous.io</h3>
+
+<p>Nitrous.io is a browser-based development environment. Nitrous.io is free for small projects (like ours!). If you have a fast broadband connection to the Internet, this is your best choice for developing Rails on Windows. And it is a good option if you have any trouble installing Ruby on Mac or Linux because the Nitrous.io hosted environment provides everything you need, including a Unix shell with Ruby and RVM pre-installed, plus a browser-based file manager and text editor. Using a hosted development environment is unconventional but leading developers do so and it may be the wave of the future.</p>
+
+<p>To get started using Nitrous.io, see this article for instructions: <a href="http://railsapps.github.io/rubyonrails-nitrous-io">Install Ruby on Rails - Nitrous.io</a></p>
+
+<hr>
+</section>
+</div>
+
+    </div>
+  </body>
+</html>

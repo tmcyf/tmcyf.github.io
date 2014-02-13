@@ -1,0 +1,110 @@
+<!doctype html> 
+<html lang="en"> 
+<head>
+  <meta charset="utf-8">
+  <title>TMCYF Web: Docs & Guides</title>
+  <meta name="author" content="TMCYF">
+  <meta name="description" content="Documentation and guides for TMCYF development">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" href="/assets/base-23449e3f02cc6adbcccf22747de4a8a1.css">
+    <link rel="stylesheet" href="/assets/style-c5577a40a9f414dc4ecced8d71891979.css">
+    <link rel="stylesheet" href="/assets/syntax-acd765c80ae2bf51edaa85ef4607d765.css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic|Gentium+Book+Basic:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container">
+      <div id="home"><a href="/"><i class="icon-home"></i></a></div>
+<div class="thirteen columns offset-by-three">
+	<header>
+		<h1 class="page-title">Workflow</h1>
+	</header>
+	<section class="page-content"><h2>Introduction</h2>
+
+<p>We follow several workflows that help us write better and faster code, implement new features, and stay consistent in our style.</p>
+
+<h2>Developing a new feature</h2>
+
+<p>We closely follow the &quot;<a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub-flow model</a>&quot; of development. The principles at the core of this model is:</p>
+
+<ul>
+<li>anything in the <code>master</code> branch is deployable</li>
+<li>to work on something new, create a branch off of <code>master</code></li>
+<li>commit to that branch locally and regularly push your work to the same named branch on GitHub</li>
+<li>when you need feedback, help, or you think the branch is ready for merging into <code>master</code>, open a pull request</li>
+<li>after someone has reviewed and signed off on the feature, you can merge it into <code>master</code></li>
+<li>once it is merged and pushed into <code>master</code>, you can and should deploy immediately</li>
+</ul>
+
+<p>These principles are outlined further below.</p>
+
+<h4>Identify missing feature</h4>
+
+<p>Start by identifying a missing feature (blog posts, Sunday sermons, photos, etc.) and have a discussion.</p>
+
+<ul>
+<li>Does it add value to the site?</li>
+<li>Does it communicate something important to the user?</li>
+<li>Does it have a function within the site or is it decoration?</li>
+<li>Does it make the site easier to use?</li>
+</ul>
+
+<p>One of the best ways to feature planning is the user story. User stories are a way to discuss and describe the requirements for a feature. Breaking down the feature&#39;s functionality into discrete user stories helps organize the work and track the progress towards completion.</p>
+
+<p>User stories are expressed in the following format:</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html">*Feature*
+As a <span class="nt">&lt;role&gt;</span>
+I want <span class="nt">&lt;goal&gt;</span>
+In order to <span class="nt">&lt;benefit&gt;</span>
+</code></pre></div>
+<p>Here&#39;s an example:</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html">*Search*
+As a visitor to the website
+I want to be able to search for articles, events, and sermons
+In order to read devotionals, find events I want to attend, and listen to a message I may have missed
+</code></pre></div>
+<p>Lastly, be comfortable with saying no. Simpler code is easier to push. If the feature adds value to the site, then it&#39;s on to the next step.</p>
+
+<h4>Create an issue</h4>
+
+<p>We use GitHub <a href="https://github.com/tmcyf/tmcyf/issues/new">Issues</a> for issue tracking, creating milestones, prioritizing our focus. Create an issue with a descriptive title and in the body, write in the user story along with any pertinent details. Wireframe the feature and refine the idea in the comments. Be sure to use the labels provided to make triaging easier.</p>
+
+<h4>Create a feature branch off of master</h4>
+
+<p>Create a descriptively named branch off of the <code>master</code> branch. No work should ever be directly committed to the <code>master</code> branch unless it&#39;s a very minor change that has been approved by others on the team. Example: <code>elasticsearch-implementation</code>, <code>redis-transition</code>, or <code>retreat-csv-export</code>.</p>
+
+<h4>Write tests</h4>
+
+<p>Ruby on Rails and automated testing go hand in hand. Tests are written before any implementation coding. First, give thought to what needs to be accomplished and think through alternatives and edge cases. This allows for good test coverage, making it easier to refactor the code later on. Running a test suite after refactoring provides assurance that nothing inadvertently breaks after the changes.</p>
+
+<p>A few things to keep in mind:</p>
+
+<ul>
+<li>Tests should be reliable</li>
+<li>Tests should be easy to write</li>
+<li>Tests should be easy to understand</li>
+</ul>
+
+<h4>Develop feature and push to named branches constantly</h4>
+
+<p>Note much to detail for this step. Write the code until tests pass. Commit often. Git, as a distributed version control system, makes it easy to take large changes and break them into small commits. <a href="http://git-scm.com/book/ch5-2.html#Commit-Guidelines">Git&#39;s documentation</a> has great guidelines on good commit messages. When you&#39;re ready, push your commits to GitHub. An great byproduct of this method is that your work is always backed up on GitHub&#39;s servers.</p>
+
+<h4>Open a pull request</h4>
+
+<p>Once the feature is ready, it&#39;s time for it to be reviewed so open a pull request and assign it to someone else on the team. Make sure there aren&#39;t any glaring errors so everyone can maintain a normal blood pressure. It&#39;s ok to open a pull request at any time of the development process. You can keep pushing commits to the branch and add to the pull request.</p>
+
+<h4>Pull request review and merge to master</h4>
+
+<p>If you haven&#39;t been working on the feature with someone else, it&#39;s a great idea to describe the implementation in detail. Once the code has been reviewed and signed off from someone else on the team, it&#39;s ready to merge! Once we get that, and the branch passes CI, we can merge it into master for deployment, which will automatically close the Pull Request when we push it.</p>
+
+<h4>Deploy</h4>
+
+<p>{ deployment strategies }</p>
+</section>
+</div>
+
+    </div>
+  </body>
+</html>
